@@ -1,16 +1,19 @@
-import router from "express";
+import { Router } from "express";
 
-const subscriptionRouter = router();
-subscriptionRouter.get("/", (req, res) => res.send({message: "All subscriptions retrieved successfully!"}));
+const subscriptionRouter = Router();
 
-subscriptionRouter.post("/:id", (req, res) => res.send({message: "Subscription created successfully!"}));
+subscriptionRouter.get("/", (req, res) => res.send({ message: "All subscriptions retrieved successfully!" }));
 
-subscriptionRouter.get("/user/:id", (req, res) => res.send({message: "Subscription retrieved successfully!"}));
+subscriptionRouter.post("/", (req, res) => res.send({ message: "Subscription created successfully!" }));
 
-subscriptionRouter.put("/:id", (req, res) => res.send({message: "Subscription updated successfully!"}));
+subscriptionRouter.get("/upcoming-renewals", (req, res) => res.send({ message: "All upcoming subscriptions retrieved successfully!" }));
 
-subscriptionRouter.delete("/:id", (req, res) => res.send({message: "Subscription deleted successfully!"}));
+subscriptionRouter.get("/user/:id", (req, res) => res.send({ message: "User subscriptions retrieved successfully!" }));
 
-subscriptionRouter.get("/upcoming-renewals ", (req, res) => res.send({message: "All upcoming subscriptions retrieved successfully!"}));
+subscriptionRouter.get("/:id", (req, res) => res.send({ message: "Subscription retrieved successfully!" }));
+
+subscriptionRouter.put("/:id", (req, res) => res.send({ message: "Subscription updated successfully!" }));
+
+subscriptionRouter.delete("/:id", (req, res) => res.send({ message: "Subscription deleted successfully!" }));
 
 export default subscriptionRouter;
