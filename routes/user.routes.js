@@ -1,14 +1,24 @@
 import { Router } from "express";
 
 const userRouter = Router();
-userRouter.get("/", (req, res) => res.send({ message: "All users retrieved successfully!" }));
+userRouter.get("/", (req, res) =>
+  res.send({ message: "All users retrieved successfully!" }),
+);
 
-userRouter.post("/", (req, res) => res.send({ message: "User created successfully!" }));
+userRouter.post("/", (req, res) =>
+  res.send({ message: "User created successfully!" }),
+);
 
-userRouter.get("/:id", (req, res) => res.send({ message: "User retrieved successfully!" }));
+userRouter.get("/:id", (req, res) =>
+  res.send({ message: "User retrieved successfully!" }),
+);
 
-userRouter.put("/:id", (req, res) => res.send({ message: "User updated successfully!" }));
+userRouter.put("/:id", (req, res) =>
+  res.send({ message: "User updated successfully!" }),
+);
 
-userRouter.delete("/:id", (req, res) => res.send({ message: "User deleted successfully!" }));
+userRouter.delete("/:id", (req, res) =>
+  res.send({ message: "User deleted successfully!" }),
+);
 
 export default userRouter;
