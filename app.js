@@ -4,7 +4,7 @@ import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import connectedDB from "./config/database.js";
-
+import errorHandler from "./middleware/error.handler.js";
 const app = express();
 
 app.use(express.json());
@@ -20,14 +20,7 @@ app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-  console.error("Unhandled error:", err);
-
-  res.status(err.status || 500).json({
-    message: err.message || "Internal Server Error",
-  });
-});
+app.use(errorHandler);
 
 const startServer = async () => {
   await connectedDB();
